@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lord Kaelen Agency — Project Dossier. Case studies across hospitality full-stack development, OTA optimization, and creative brand staging." />
+  <title>Dossier — Lord Kaelen Agency</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ────────────────────────────────────── -->
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Lord Kaelen home">
+        <span class="nav__brand-accent">LORD</span>&nbsp;KAELEN
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Genesis</a></li>
+        <li><a href="portfolio.html" class="active" aria-current="page">Dossier</a></li>
+        <li><a href="contact.html">Comms</a></li>
+      </ul>
+      <a href="contact.html" class="nav__cta btn btn--primary">INITIATE CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- ── Portfolio Header ──────────────────────────────── -->
+  <div style="padding-top:64px;background:var(--bg-surface);border-bottom:1px solid var(--border-subtle);">
+    <div class="container" style="padding-top:4rem;padding-bottom:3rem;">
+      <div class="section-header" style="margin-bottom:0;">
+        <div class="section-header__eyebrow">Case Study Registry</div>
+        <h1 class="section-header__title">Project Dossier</h1>
+        <p class="section-header__sub">
+          A record of deployed systems across hospitality infrastructure,
+          OTA channel architecture, and creative digital staging.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Dossier Grid ──────────────────────────────────── -->
+  <section id="portfolio" aria-labelledby="portfolio-heading">
+    <div class="sr-only" id="portfolio-heading">Project case studies</div>
+    <div class="container" style="padding-top:0;padding-bottom:0;">
+      <!-- Status line -->
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0;border-bottom:1px solid var(--border-subtle);">
+        <span class="mono" id="dossier-status" style="font-size:0.7rem;color:var(--text-muted);">
+          <span style="color:var(--signal-green);">●</span>&nbsp; FETCHING MANIFEST...
+        </span>
+        <span class="mono" id="dossier-count" style="font-size:0.7rem;color:var(--text-muted);"></span>
+      </div>
+    </div>
+
+    <div id="dossier-grid" class="dossier-grid" role="list" aria-label="Project case studies" aria-live="polite">
+      <!-- Populated by engine.portfolio.js -->
+      <div class="dossier-card skeleton" aria-hidden="true"></div>
+      <div class="dossier-card skeleton" aria-hidden="true"></div>
+      <div class="dossier-card skeleton" aria-hidden="true"></div>
+      <div class="dossier-card skeleton" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ── CTA Strip ─────────────────────────────────────── -->
+  <section style="background:var(--bg-surface);padding:4rem 0;">
+    <div class="container" style="text-align:center;">
+      <h2 style="margin-bottom:1rem;font-size:1.4rem;">Have a project in mind?</h2>
+      <p style="color:var(--text-secondary);margin-bottom:2rem;max-width:48ch;margin-left:auto;margin-right:auto;">
+        Every engagement starts with a diagnostic. Let's identify the friction in your digital setup and engineer a fix.
+      </p>
+      <a href="contact.html" class="btn btn--primary">OPEN COMMS LINE →</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container footer__inner">
+      <span class="footer__brand"><span style="color:var(--accent);">LORD</span> KAELEN</span>
+      <span class="footer__copy mono" id="footer-copy"></span>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { openModal } from './src/core/engine.modal.js';
+
+    const MANIFEST_PATH = 'data/_manifest.json';
+    const PROJECTS_PATH = 'data/projects/';
+
+    const grid         = document.getElementById('dossier-grid');
+    const statusEl     = document.getElementById('dossier-status');
+    const countEl      = document.getElementById('dossier-count');
+
+    /* ── Link definitions for polymorphic rendering ── */
+    const LINK_DEFS = {
+      liveDomain:       { label: 'Live Site',       cls: 'live',     icon: '🌐' },
+      bookingListing:   { label: 'Booking.com',     cls: 'booking',  icon: '🏨' },
+      airbnbListing:    { label: 'Airbnb',          cls: 'airbnb',   icon: '🏠' },
+      googleMaps:       { label: 'Google Maps',     cls: 'maps',     icon: '📍' },
+      githubStaging:    { label: 'Staging',         cls: 'staging',  icon: '⚙️' },
+      originalGallery:  { label: 'Art Gallery',     cls: 'gallery',  icon: '🖼️' },
+      agencyOnboarding: { label: 'Onboard',         cls: 'onboard',  icon: '🚀' },
+    };
+
+    function escHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function buildCard(project) {
+      const card = document.createElement('article');
+      card.className = 'dossier-card';
+      card.setAttribute('role', 'listitem button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', `Open case study: ${project.title}`);
+
+      /* Build polymorphic link badges */
+      const linkBadges = Object.entries(project.links || {})
+        .filter(([k]) => LINK_DEFS[k])
+        .slice(0, 3)
+        .map(([k]) => {
+          const d = LINK_DEFS[k];
+          return `<span class="tag" style="font-size:0.6rem;">${d.icon} ${d.label}</span>`;
+        }).join('');
+
+      card.innerHTML = `
+        <div class="dossier-card__category mono">${escHtml(project.category)}</div>
+        <h3 class="dossier-card__title">${escHtml(project.title)}</h3>
+        <p class="dossier-card__tagline">${escHtml(project.tagline)}</p>
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1rem;">${linkBadges}</div>
+        <div class="dossier-card__location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+            <circle cx="5" cy="4" r="2" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M5 10 C5 10 1 6.5 1 4a4 4 0 0 1 8 0c0 2.5-4 6-4 6z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+          </svg>
+          ${escHtml(project.location)}
+        </div>
+        <span class="dossier-card__cta" aria-hidden="true">OPEN DOSSIER →</span>
+      `;
+
+      card.addEventListener('click', () => openModal(project));
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(project); }
+      });
+
+      return card;
+    }
+
+    async function loadPortfolio() {
+      try {
+        const manifest = await fetch(MANIFEST_PATH).then(r => r.json());
+        statusEl.innerHTML = `<span style="color:var(--signal-green);">●</span>&nbsp; LOADING ${manifest.length} DOSSIERS...`;
+
+        const projects = await Promise.all(
+          manifest.map(key => fetch(`${PROJECTS_PATH}${key}.json`).then(r => r.json()))
+        );
+
+        grid.innerHTML = '';
+        projects.forEach(p => grid.appendChild(buildCard(p)));
+
+        statusEl.innerHTML = `<span style="color:var(--signal-green);">●</span>&nbsp; DOSSIER GRID ACTIVE`;
+        countEl.textContent = `${projects.length} RECORDS LOADED`;
+
+      } catch (err) {
+        statusEl.innerHTML = `<span style="color:var(--signal-amber);">[ERR]</span>&nbsp; ${escHtml(err.message)}`;
+        grid.innerHTML = `
+          <div class="dossier-card" style="grid-column:1/-1;padding:3rem;text-align:center;">
+            <p class="mono" style="color:var(--text-muted);">Failed to load project dossiers.</p>
+          </div>`;
+      }
+    }
+
+    /* Footer year */
+    document.getElementById('footer-copy').textContent =
+      `© ${new Date().getFullYear()} Lord Kaelen Agency`;
+
+    document.addEventListener('DOMContentLoaded', loadPortfolio);
+  </script>
+
+</body>
+</html>

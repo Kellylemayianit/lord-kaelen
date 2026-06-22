@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lord Kaelen — AI Consultant & Sovereign Infrastructure Builder. Digital marketing, automation, and full-stack architecture for forward-thinking businesses." />
+  <title>Lord Kaelen — AI Consultant & Systems Architect</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ────────────────────────────────────── -->
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Lord Kaelen home">
+        <span class="nav__brand-accent">LORD</span>&nbsp;KAELEN
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="active" aria-current="page">Genesis</a></li>
+        <li><a href="portfolio.html">Dossier</a></li>
+        <li><a href="contact.html">Comms</a></li>
+      </ul>
+      <a href="contact.html" class="nav__cta btn btn--primary">INITIATE CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ──────────────────────────────────────────── -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero__grid-bg" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="hero__eyebrow" aria-label="Category">AI Consultant · Digital Systems Architect</div>
+      <h1 class="hero__title" id="hero-heading">
+        <em>Kelly</em> Nkurrunah<br />
+        <span style="color:var(--text-secondary);font-size:0.6em;letter-spacing:0.06em;">LORD KAELEN AGENCY</span>
+      </h1>
+      <p class="hero__role mono" id="hero-role">Loading identity profile...</p>
+      <p class="hero__narrative" id="hero-narrative">
+        Loading narrative...
+      </p>
+      <div class="hero__actions">
+        <a href="portfolio.html" class="btn btn--primary">VIEW DOSSIER →</a>
+        <a href="contact.html" class="btn btn--ghost">OPEN COMMS LINE</a>
+      </div>
+
+      <div class="stats-bar" aria-label="Agency metrics">
+        <div class="stat">
+          <span class="stat__value">4</span>
+          <span class="stat__label">Case Studies</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">3+</span>
+          <span class="stat__label">OTA Platforms</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">100%</span>
+          <span class="stat__label">Direct Booking Infrastructure</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">AI</span>
+          <span class="stat__label">Driven Workflows</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Services ──────────────────────────────────────── -->
+  <section id="services" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header__eyebrow">Service Architecture</div>
+        <h2 class="section-header__title" id="services-heading">Core Capabilities</h2>
+        <p class="section-header__sub">Precision-deployed solutions across AI consulting, digital marketing, and full-stack infrastructure.</p>
+      </div>
+      <div class="services-grid" id="services-grid" role="list" aria-label="Services">
+        <!-- Populated by script -->
+        <div class="service-card skeleton" aria-hidden="true"></div>
+        <div class="service-card skeleton" aria-hidden="true"></div>
+        <div class="service-card skeleton" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Sovereign Narrative ───────────────────────────── -->
+  <section id="about" aria-labelledby="about-heading" style="background:var(--bg-surface);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header__eyebrow">Operational DNA</div>
+        <h2 class="section-header__title" id="about-heading">Sovereign Foundations</h2>
+        <p class="section-header__sub">Three core pillars that encode every decision, architecture, and deployment.</p>
+      </div>
+      <div class="narrative-grid" id="narrative-grid" role="list">
+        <!-- Populated by script -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container footer__inner">
+      <span class="footer__brand"><span style="color:var(--accent);">LORD</span> KAELEN</span>
+      <span class="footer__copy mono" id="footer-copy"></span>
+    </div>
+  </footer>
+
+  <script type="module">
+    /* ── Load agency profile and populate page ── */
+    async function loadAgencyProfile() {
+      try {
+        const res = await fetch('data/config/agency.json');
+        const agency = await res.json();
+
+        /* Hero */
+        document.getElementById('hero-role').textContent = agency.identity.roleTag;
+        document.getElementById('hero-narrative').textContent = agency.narrative.sovereignCore;
+
+        /* Services */
+        renderServices(agency.services);
+
+        /* Narrative */
+        renderNarrative(agency.narrative);
+
+        /* Footer */
+        document.getElementById('footer-copy').textContent =
+          `© ${new Date().getFullYear()} ${agency.identity.agencyName} · ${agency.identity.fullName}`;
+
+        /* Page title */
+        document.title = `${agency.identity.agencyName} — ${agency.identity.brandingTitle}`;
+
+      } catch (err) {
+        console.error('Failed to load agency profile:', err);
+      }
+    }
+
+    function renderServices(services) {
+      const grid = document.getElementById('services-grid');
+      grid.innerHTML = '';
+      services.forEach((svc, i) => {
+        grid.innerHTML += `
+          <div class="service-card" role="listitem">
+            <div class="service-card__index mono">SVC-0${i + 1}</div>
+            <div class="service-card__title">${svc.title}</div>
+            <p class="service-card__desc">${svc.description}</p>
+          </div>
+        `;
+      });
+    }
+
+    function renderNarrative(narrative) {
+      const defs = [
+        { key: 'scientificCore', icon: '⬡', title: 'Scientific Core' },
+        { key: 'athleticCore',   icon: '◈', title: 'Athletic Core'   },
+        { key: 'sovereignCore',  icon: '◉', title: 'Sovereign Core'  },
+      ];
+      const grid = document.getElementById('narrative-grid');
+      grid.innerHTML = '';
+      defs.forEach(d => {
+        grid.innerHTML += `
+          <div class="narrative-block" role="listitem">
+            <div class="narrative-block__icon" aria-hidden="true">${d.icon}</div>
+            <div class="narrative-block__title">${d.title}</div>
+            <p class="narrative-block__text">${narrative[d.key]}</p>
+          </div>
+        `;
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadAgencyProfile);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lord Kaelen Agency — Onboarding Terminal. Initiate contact to discuss custom AI consulting, digital marketing, and full-stack development engagements." />
+  <title>Comms Array — Lord Kaelen Agency</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ────────────────────────────────────── -->
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Lord Kaelen home">
+        <span class="nav__brand-accent">LORD</span>&nbsp;KAELEN
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Genesis</a></li>
+        <li><a href="portfolio.html">Dossier</a></li>
+        <li><a href="contact.html" class="active" aria-current="page">Comms</a></li>
+      </ul>
+      <a href="portfolio.html" class="nav__cta btn btn--primary">VIEW DOSSIER</a>
+    </div>
+  </nav>
+
+  <!-- ── Contact Hero ──────────────────────────────────── -->
+  <div style="padding-top:64px;background:var(--bg-surface);border-bottom:1px solid var(--border-subtle);">
+    <div class="container" style="padding-top:4rem;padding-bottom:3rem;">
+      <div class="section-header__eyebrow" style="font-family:'Share Tech Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;">
+        <span style="color:var(--text-muted);">//</span> Onboarding Terminal
+      </div>
+      <h1 style="font-family:'Orbitron',monospace;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:0.75rem;">
+        Open a Comms Line
+      </h1>
+      <p style="color:var(--text-secondary);max-width:56ch;font-size:0.95rem;">
+        Every engagement begins with a diagnostic. Choose your preferred channel below
+        to initiate contact with Lord Kaelen Agency.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Terminal & Socials ────────────────────────────── -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="sr-only" id="contact-heading">Contact information</div>
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:3rem;align-items:start;">
+
+        <!-- Terminal Window -->
+        <div>
+          <div class="terminal-window" role="region" aria-label="Contact details terminal">
+            <div class="terminal-bar">
+              <div class="terminal-dot terminal-dot--r" aria-hidden="true"></div>
+              <div class="terminal-dot terminal-dot--y" aria-hidden="true"></div>
+              <div class="terminal-dot terminal-dot--g" aria-hidden="true"></div>
+              <span class="terminal-title">comms@lordkaelen.agency — onboard.sh</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line">
+                <span class="terminal-prompt" aria-hidden="true">$</span>
+                <span class="terminal-value">whoami</span>
+              </div>
+              <div class="terminal-line" id="t-name">
+                <span class="terminal-prompt" aria-hidden="true">&gt;</span>
+                <span class="terminal-value" style="color:var(--accent);">Loading...</span>
+              </div>
+              <div class="terminal-line" style="margin-top:0.75rem;">
+                <span class="terminal-prompt" aria-hidden="true">$</span>
+                <span class="terminal-value">cat role.txt</span>
+              </div>
+              <div class="terminal-line" id="t-role">
+                <span class="terminal-prompt" aria-hidden="true">&gt;</span>
+                <span class="terminal-value">Loading...</span>
+              </div>
+              <div class="terminal-line" style="margin-top:0.75rem;">
+                <span class="terminal-prompt" aria-hidden="true">$</span>
+                <span class="terminal-value">ls /channels/</span>
+              </div>
+              <div id="t-channels" style="margin-top:0.25rem;">
+                <div class="terminal-line" style="color:var(--text-muted);">
+                  <span class="terminal-prompt" aria-hidden="true">&gt;</span>
+                  <span>Scanning channels...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Cards -->
+        <div>
+          <h2 style="font-family:'Orbitron',monospace;font-size:1rem;letter-spacing:0.08em;margin-bottom:1.5rem;color:var(--text-secondary);text-transform:uppercase;">
+            Direct Channels
+          </h2>
+
+          <!-- WhatsApp — primary CTA -->
+          <a href="https://wa.me/qr/MPS5LLGWN57PC1"
+             target="_blank" rel="noopener noreferrer"
+             class="link-btn link-btn--whatsapp"
+             style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem 1.5rem;margin-bottom:1px;font-size:0.8rem;width:100%;"
+             aria-label="Contact via WhatsApp">
+            <span aria-hidden="true" style="font-size:1.2rem;">💬</span>
+            <div style="text-align:left;">
+              <div>WhatsApp</div>
+              <div style="font-size:0.65rem;color:var(--text-secondary);margin-top:0.15rem;text-transform:lowercase;">Direct messaging · Fastest response</div>
+            </div>
+          </a>
+
+          <a href="https://t.me/Kaelen254"
+             target="_blank" rel="noopener noreferrer"
+             class="link-btn"
+             style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem 1.5rem;margin-bottom:1px;font-size:0.8rem;width:100%;border-color:#229ed9;color:#229ed9;background:rgba(34,158,217,0.06);"
+             aria-label="Contact via Telegram">
+            <span aria-hidden="true" style="font-size:1.2rem;">✈️</span>
+            <div style="text-align:left;">
+              <div>Telegram</div>
+              <div style="font-size:0.65rem;color:var(--text-secondary);margin-top:0.15rem;text-transform:lowercase;">@Kaelen254</div>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/kelly-lemayian-5a3a29295"
+             target="_blank" rel="noopener noreferrer"
+             class="link-btn"
+             style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem 1.5rem;margin-bottom:1px;font-size:0.8rem;width:100%;border-color:#0a66c2;color:#5b9bd5;background:rgba(10,102,194,0.08);"
+             aria-label="Connect on LinkedIn">
+            <span aria-hidden="true" style="font-size:1.2rem;">🔗</span>
+            <div style="text-align:left;">
+              <div>LinkedIn</div>
+              <div style="font-size:0.65rem;color:var(--text-secondary);margin-top:0.15rem;text-transform:lowercase;">Kelly Lemayian</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/@Safaridigital-254"
+             target="_blank" rel="noopener noreferrer"
+             class="link-btn"
+             style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem 1.5rem;margin-bottom:1px;font-size:0.8rem;width:100%;border-color:#ff0000;color:#ff4444;background:rgba(255,0,0,0.06);"
+             aria-label="Watch on YouTube">
+            <span aria-hidden="true" style="font-size:1.2rem;">▶️</span>
+            <div style="text-align:left;">
+              <div>YouTube</div>
+              <div style="font-size:0.65rem;color:var(--text-secondary);margin-top:0.15rem;text-transform:lowercase;">@Safaridigital-254</div>
+            </div>
+          </a>
+
+          <a href="https://www.tiktok.com/@avianking_254"
+             target="_blank" rel="noopener noreferrer"
+             class="link-btn"
+             style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem 1.5rem;margin-bottom:1px;font-size:0.8rem;width:100%;border-color:#69c9d0;color:#69c9d0;background:rgba(105,201,208,0.06);"
+             aria-label="Follow on TikTok">
+            <span aria-hidden="true" style="font-size:1.2rem;">♪</span>
+            <div style="text-align:left;">
+              <div>TikTok</div>
+              <div style="font-size:0.65rem;color:var(--text-secondary);margin-top:0.15rem;text-transform:lowercase;">@avianking_254</div>
+            </div>
+          </a>
+
+          <a href="https://www.facebook.com/Avianking.ke"
+             target="_blank" rel="noopener noreferrer"
+             class="link-btn"
+             style="display:flex;align-items:center;gap:0.75rem;padding:1.25rem 1.5rem;font-size:0.8rem;width:100%;border-color:#1877f2;color:#5b9bd5;background:rgba(24,119,242,0.06);"
+             aria-label="Follow on Facebook">
+            <span aria-hidden="true" style="font-size:1.2rem;">𝑓</span>
+            <div style="text-align:left;">
+              <div>Facebook</div>
+              <div style="font-size:0.65rem;color:var(--text-secondary);margin-top:0.15rem;text-transform:lowercase;">Avianking.ke</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Onboarding Steps ──────────────────────────────── -->
+  <section style="background:var(--bg-surface);" aria-labelledby="process-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header__eyebrow">Engagement Protocol</div>
+        <h2 class="section-header__title" id="process-heading">How Onboarding Works</h2>
+      </div>
+      <div class="services-grid" role="list" aria-label="Onboarding steps">
+        <div class="service-card" role="listitem">
+          <div class="service-card__index mono">STEP-01</div>
+          <div class="service-card__title">Initial Signal</div>
+          <p class="service-card__desc">Send a message via WhatsApp or Telegram. Describe your current setup and the friction you're experiencing.</p>
+        </div>
+        <div class="service-card" role="listitem">
+          <div class="service-card__index mono">STEP-02</div>
+          <div class="service-card__title">Diagnostic Session</div>
+          <p class="service-card__desc">A structured analysis of your digital infrastructure to isolate systemic variables and identify root-cause friction.</p>
+        </div>
+        <div class="service-card" role="listitem">
+          <div class="service-card__index mono">STEP-03</div>
+          <div class="service-card__title">Architecture & Deploy</div>
+          <p class="service-card__desc">Treatment plan execution — from domain deployment and OTA onboarding to AI automation and full-stack builds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container footer__inner">
+      <span class="footer__brand"><span style="color:var(--accent);">LORD</span> KAELEN</span>
+      <span class="footer__copy mono" id="footer-copy"></span>
+    </div>
+  </footer>
+
+  <script type="module">
+    async function loadContactProfile() {
+      try {
+        const res    = await fetch('data/config/agency.json');
+        const agency = await res.json();
+
+        /* Terminal: name */
+        document.getElementById('t-name').innerHTML = `
+          <span style="color:var(--text-muted);">&gt;</span>
+          <span class="terminal-value" style="color:var(--accent);">${agency.identity.fullName}</span>
+        `;
+
+        /* Terminal: role */
+        document.getElementById('t-role').innerHTML = `
+          <span style="color:var(--text-muted);">&gt;</span>
+          <span class="terminal-value">${agency.identity.brandingTitle}</span>
+        `;
+
+        /* Terminal: channels list */
+        const channels = ['whatsapp', 'telegram', 'linkedin', 'youtube', 'tiktok', 'facebook'];
+        const channelHtml = channels.map(ch => `
+          <div class="terminal-line">
+            <span class="terminal-prompt" aria-hidden="true">&gt;</span>
+            <a href="${agency.socials[ch]}" target="_blank" rel="noopener noreferrer"
+               class="terminal-link" aria-label="Open ${ch}">${ch}/</a>
+          </div>
+        `).join('');
+        document.getElementById('t-channels').innerHTML = channelHtml;
+
+        /* Footer */
+        document.getElementById('footer-copy').textContent =
+          `© ${new Date().getFullYear()} ${agency.identity.agencyName} · ${agency.identity.fullName}`;
+
+      } catch (err) {
+        console.error('Failed to load contact profile:', err);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadContactProfile);
+  </script>
+
+</body>
+</html>
