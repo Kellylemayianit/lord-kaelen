@@ -1,0 +1,28 @@
+/* tokens, reset, layout primitives, buttons — KRWC recipe, blue + orange */
+:root{--g:#2563eb;--g2:#38bdf8;--gd:#9cc3ff;--deep:#0a1530;--t:#f05a1f;--o:#ffb44d;
+--bg:#060d1f;--card:#0e1b3a;--ink:#e8efff;--mut:#9db0d6;--ln:#1f3160;--r:10px;
+--sh:0 1px 2px #0006,0 6px 18px #0005;--sh2:0 2px 4px #0007,0 14px 34px #0008;
+--fh:'Playfair Display',Georgia,serif;--fb:Inter,system-ui,sans-serif;
+--grad:linear-gradient(135deg,#0a1f5c,#1d4ed8 55%,#38bdf8)}
+[data-theme=light]{--bg:#f2f6ff;--card:#fff;--ink:#0b1633;--mut:#51628a;--ln:#d6e0f5;--gd:#0a1f5c;
+--sh:0 1px 2px #0b163310,0 6px 18px #0b16331a;--sh2:0 2px 4px #0b163314,0 14px 34px #0b163333}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--fb);transition:background .3s}
+h1,h2,h3{font-family:var(--fh);line-height:1.2;color:var(--gd);margin:0 0 .5em}
+a{color:var(--gd)}img{max-width:100%;display:block}
+input,textarea,select{font:inherit;font-size:16px}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}
+.section{padding:64px 0}.alt{background:var(--card)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:22px}
+.head{text-align:center;margin-bottom:36px}.head h2{font-size:clamp(1.7rem,3.5vw,2.4rem)}
+.head p{color:var(--mut);max-width:620px;margin:0 auto}.head::after{content:'';display:block;width:64px;height:4px;background:var(--o);margin:14px auto 0;border-radius:2px}
+.eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--t)}
+.btn{display:inline-block;border:0;cursor:pointer;font:600 .92rem var(--fb);padding:11px 20px;border-radius:6px;background:var(--g);color:#fff;text-decoration:none}
+.btn:hover{filter:brightness(1.1)}.btn--t{background:var(--t)}.btn--sm{padding:7px 13px;font-size:.85rem}
+.btn--ol{background:transparent;border:2px solid #fff}.btn--line{background:transparent;color:var(--ink);border:1px solid var(--ln)}
+.pill{border:1px solid var(--ln);background:transparent;color:var(--ink);border-radius:99px;padding:6px 14px;cursor:pointer;font:500 .85rem var(--fb)}
+.pill.on{background:var(--g);border-color:var(--g);color:#fff}
+.chip{display:inline-block;background:rgba(56,189,248,.14);color:var(--gd);border-radius:99px;padding:2px 10px;font-size:.75rem;font-weight:600;margin:0 6px 6px 0}
+@media(max-width:600px){.section{padding:44px 0}.w{padding:0 16px}.grid{gap:16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+[hidden]{display:none!important}
