@@ -13,12 +13,12 @@
   const val=(it,k,t)=>t==='tags'?(it[k]||[]).join(', '):(it[k]==null?'':it[k]);
   KL.pages.adminLogin=async function(root){
     root.innerHTML=`<div style="padding:40px 16px"><div class="card formcard" style="margin:0 auto"><h2>Admin login</h2>
-      <div class="field"><label>Username</label><input id="u" autocomplete="username"></div>
+      <div class="field"><label>Email</label><input id="u" type="email" autocomplete="username"></div>
       <div class="field"><label>Password</label><input id="p" type="password" autocomplete="current-password"><span class="err" id="e"></span></div>
       <button class="btn" id="go">Sign in</button></div></div>`;
     root.querySelector('#go').onclick=()=>{
-      if(root.querySelector('#u').value==='kelly'&&root.querySelector('#p').value==='buildinpublic'){sessionStorage.setItem(AUTH,'1');location.hash='#/admin'}
-      else root.querySelector('#e').textContent='Wrong username or password.'};
+      if(root.querySelector('#u').value.trim().toLowerCase()==='kellylemayian6@gmail.com'&&root.querySelector('#p').value==='kellylemayian26'){sessionStorage.setItem(AUTH,'1');location.hash='#/admin'}
+      else root.querySelector('#e').textContent='Wrong email or password.'};
   };
   KL.pages.adminHome=async function(root){
     const [pr,ch,ex]=await Promise.all([D.getProjects(true),D.getChronicle(true),D.getExperience(true)]);
