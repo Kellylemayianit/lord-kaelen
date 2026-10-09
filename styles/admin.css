@@ -1,13 +1,16 @@
-/* admin: sidebar shell, tables, stat cards, brand toggle */
-.adm{display:block;min-height:100vh}.adm__main{padding:22px 20px 60px;max-width:980px}.adm__bar{display:flex;gap:12px;align-items:center;margin-bottom:18px}
-.adm__side b{font:700 1.1rem var(--fh);margin:6px 13px 14px}
+/* admin: sidebar shell, tables, stat cards */
+body.adm-on .app{display:block}body.adm-on #sb,body.adm-on #tb,body.adm-on #ftr,body.adm-on #bn,body.adm-on .wa{display:none}
+body.adm-on #view{max-width:none;padding:0}
+.adm{display:block;min-height:100vh}.adm__main{padding:22px 20px 60px;max-width:1000px}.adm__bar{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+.adm__side{position:fixed;top:0;bottom:0;left:0;width:min(84vw,300px);background:var(--deep);color:#fff;z-index:70;transform:translateX(-100%);transition:transform .25s;display:flex;flex-direction:column;padding:18px;overflow:auto}
+.adm__side a{display:block;color:#fff;text-decoration:none;padding:12px 13px;border-radius:8px}.adm__side a.on{background:rgba(255,255,255,.2)}
+.adm__side b{font:700 1.1rem var(--fb);margin:6px 13px 14px}
+.menu-open .adm__side{transform:none}.menu-open .scrim{opacity:1;pointer-events:auto}
 @media(min-width:760px){.adm{display:grid;grid-template-columns:230px 1fr}.adm__side{position:sticky;top:0;height:100vh;transform:none;width:230px}.adm__bar .ib{display:none}}
 .stat{border-left:5px solid var(--g2);background:var(--card);border-radius:var(--r);padding:16px 18px;box-shadow:var(--sh)}
-.stat b{font:700 2rem var(--fh);display:block;color:var(--gd)}.stat span{color:var(--mut);font-size:.85rem}
-.seg{display:inline-flex;background:var(--card);border-radius:12px;padding:4px;box-shadow:var(--sh);border:1px solid var(--ln)}
-.seg button{border:0;background:transparent;color:var(--ink);padding:10px 18px;border-radius:9px;cursor:pointer;font:600 .9rem var(--fb)}
-.seg button.on{background:var(--g);color:#fff}
+.stat b{font:700 2rem var(--fb);display:block}.stat span{color:var(--mut);font-size:.85rem}
 .tw{overflow-x:auto;border:1px solid var(--ln);border-radius:var(--r);background:var(--card)}
-.tw table{width:100%;border-collapse:collapse;min-width:520px}.tw th{text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);padding:12px 14px}
+.tw table{width:100%;border-collapse:collapse;min-width:520px}.tw th{text-align:left;font-size:.74rem;color:var(--mut);padding:12px 14px}
 .tw td{padding:12px 14px;border-top:1px solid var(--ln);font-size:.9rem}
 .badge{background:var(--o);color:#1a1200;border-radius:99px;font-size:.7rem;font-weight:700;padding:2px 9px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:var(--r);padding:22px;box-shadow:var(--sh)}
